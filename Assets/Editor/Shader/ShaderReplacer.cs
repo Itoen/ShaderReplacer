@@ -92,7 +92,7 @@ public class ShaderReplacer : EditorWindow
             var targetGUID = searchGUIDList[i];
             var targetPath = AssetDatabase.GUIDToAssetPath(targetGUID);
             EditorUtility.DisplayProgressBar("置換中", (i + 1).ToString() + "/" + searchCount, i / (float)searchCount);
-            foreach (var referentGUID in AssetDatabase.GetDependencies(targetGUID).Select(AssetDatabase.AssetPathToGUID))
+            foreach (var referentGUID in AssetDatabase.GetDependencies(targetPath).Select(AssetDatabase.AssetPathToGUID))
             {
                 if (referentGUID.Equals(targetGUID)) { continue; }
 
